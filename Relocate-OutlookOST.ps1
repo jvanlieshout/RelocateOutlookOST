@@ -50,6 +50,8 @@ if ($null -eq $OutlookPolicies.forceostpath) {
     return
 } else {
     $OSTPath = $OutlookPolicies.forceostpath
+    # Create the path if it doesn't exist
+    New-Item $OSTPath -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 }
 
 # Building the log file location
